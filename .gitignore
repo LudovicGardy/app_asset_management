@@ -1,25 +1,22 @@
-# Byte-compiled / optimized / DLL files
+### Ignore these folders
 __pycache__/
-
-# Mac OS
-.DS_Store
-
-# VSCode
-.vscode/
-*.code-workspace
-
-# Data
-# data/
-# static/data/
-restaurants_simulated_france.parquet
-
-# Testing
-.pytest_cache/
-
-# Other
+.mypy_cache/
+.venv/
+.vs/
+.buffer/
+.ipynb_checkpoints/
 _archives/
+derivatives/
 notebooks/
-env/
-pipeline.md
-notes.md
-#.env # Let's keep it for this project
+program/.ipynb_checkpoints
+program/events_data
+pptx/
+
+
+### Ignore these files
+.DS_Store
+.env
+Shared_scripts.pyproj
+Shared_scripts.sln
+start_demo_extended.ipynb
+app.py

@@ -5,6 +5,8 @@ import seaborn as sns
 import openai
 from openai import OpenAI
 
+from modules.config import page_config
+
 # Configurer le style Seaborn
 sns.set_theme(style="whitegrid", palette="pastel")
 
@@ -71,11 +73,30 @@ def plot_mortgage(years, remaining_balance, interest_paid, principal_paid, annua
     plt.legend()
     return plt
 
-
 class App:
+    
+    def steup_sidebar(self):
+
+        with st.sidebar:
+
+            col1, col2 = st.columns([1, 3])
+            
+            with col1:
+                st.image(str(page_config().get('page_logo')), width=60)
+            with col2:
+                st.write(str(page_config().get('page_title')))
+
+            st.write(str(page_config().get('page_subtitle')))
+            st.caption(str(page_config().get('page_description')))
+
+            st.divider()
+
+
     def __init__(self):
+        self.steup_sidebar()
+
         # Streamlit interface
-        st.title('Gestion patrimoniale')
+        # st.title('Gestion patrimoniale')
 
         # Création des onglets
         tab1, tab2 = st.tabs(["Épargne", "Achat"])
