@@ -2,8 +2,6 @@ import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns  
-import openai
-from openai import OpenAI
 
 from ..AI.GPT import chatbot_GPT
 from ..config import page_config
