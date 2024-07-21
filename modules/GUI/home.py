@@ -4,9 +4,10 @@ import matplotlib.pyplot as plt
 import seaborn as sns  
 
 from ..AI.GPT import chatbot_GPT
-from ..config import page_config
 from ..calculs import calculate_savings, calculate_mortgage
 from ..plots import plot_savings, plot_mortgage
+from .ui_components import init_page_config, display_sidebar, init_session_state
+from ..config import page_config
 
 sns.set_theme(style="whitegrid", palette="pastel")
 
@@ -14,30 +15,10 @@ class App:
     
     def __init__(self):
 
-        self.steup_sidebar()
-        self.init_session_state()
+        init_page_config(page_config)
+        display_sidebar(page_config)
+        init_session_state()
         self.run()
-
-    def steup_sidebar(self):
-        with st.sidebar:
-
-            col1, col2 = st.columns([1, 3])
-            
-            with col1:
-                st.image(str(page_config().get('page_logo')), width=60)
-            with col2:
-                st.write(str(page_config().get('page_title')))
-
-            st.write(str(page_config().get('page_subtitle')))
-            st.caption(str(page_config().get('page_description')))
-
-            st.divider()
-
-    def init_session_state(self):
-        # if "messages" not in st.session_state:
-        #     st.session_state.messages = []
-        if "openai_model" not in st.session_state:
-            st.session_state.openai_model = "gpt-4"
 
     def run(self):
         tab1, tab2 = st.tabs(["Épargne", "Achat"])

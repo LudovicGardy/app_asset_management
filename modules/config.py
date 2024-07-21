@@ -1,5 +1,7 @@
 import os
+import toml
 from dotenv import load_dotenv, find_dotenv
+
 
 def load_configurations():
     """
@@ -17,21 +19,33 @@ def load_configurations():
         # The .env file does not exist, return all the system environment variables
         return dict(os.environ)
 
+def load_toml_config(file_path):
+    """
+    Charge les configurations à partir d'un fichier .toml
+    """
+    try:
+        with open(file_path, 'r') as file:
+            return toml.load(file).get('theme', {})
+    except FileNotFoundError:
+        return {}
+
 def page_config():
-    '''
+    """
     Set the page configuration (title, favicon, layout, etc.)
-    '''
+    """
     env_variables = load_configurations()
+    toml_config = load_toml_config('.streamlit/config.toml')
 
     page_dict = {
-        'page_title': '# Pro Actifs',
+        'page_title': toml_config.get('page_title', 'Pro Actifs'),
         'page_subtitle': '### Gestion patrimoniale',
-        'author': 'Sotis AI',
-        'base': 'dark',
+        'sidebar_title': f"# {toml_config.get('sidebar_title', 'Pro Actifs')}",
+        'base': toml_config.get('base', 'dark'),
         'page_icon': f'{env_variables["AWS_S3_URL"]}/Sotis_AI_pure_darkbg_240px.ico',
         'page_logo': f'{env_variables["AWS_S3_URL"]}/Sotis_AI_pure_darkbg_240px.png',
-        'layout': 'wide',
-        'initial_sidebar_state': 'auto',
+        'layout': toml_config.get('layout', 'centered'),
+        'initial_sidebar_state': toml_config.get('initial_sidebar_state', 'auto'),
+        'author': 'Sotis AI',
         'markdown': '''<style>.css-10pw50 {visibility:hidden;}</style>''',
         'page_description': '''
         Cette application de gestion patrimoniale permet aux utilisateurs de simuler des plans d'épargne et des scénarios d'achat immobilier.
