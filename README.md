@@ -8,7 +8,8 @@
 
 This application allows you to analyze the evolution of savings with periodic contributions and interest rates, as well as calculate mortgage repayments, considering both principal and interest. It's an ideal tool for individuals and professionals looking to efficiently plan their personal finances.
 
-👉 Access the app and start your analysis now at [coming soon].
+🌐 Access the app and start your analysis now at [https://epargner.sotisanalytics.com](https://epargner.sotisanalytics.com).
+
 
 ![Image1](images/image1.png)
 
@@ -73,7 +74,7 @@ This application allows you to analyze the evolution of savings with periodic co
         cd [path-to-app-folder-containing-Dockerfile]
         ```
 
-3. **Build the image (if does not already exit)**
+3. **Build the image (if does not already exist)**
     - For multiple containers:
         ```bash
         docker-compose up --build
