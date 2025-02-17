@@ -23,7 +23,7 @@ class App:
         tab1, tab2 = st.tabs(["Épargne", "Achat"])
 
         with tab1:
-            st.header("Paramètres de l'épargne")
+            st.header("[TEST] Paramètres de l'épargne")
             with st.form("savings_form"):
                 P_savings = st.number_input(
                     "Placement de départ (€)", value=10000, step=1000
