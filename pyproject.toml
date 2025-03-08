@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "app-asset-management"
+version = "0.1.0"
+description = ""
+authors = ["Ludovic Gardy <ludovic.gardy@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.13"
+streamlit = "^1.43.1"
+dotenv = "^0.9.9"
+seaborn = "^0.13.2"
+openai = "^1.65.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
