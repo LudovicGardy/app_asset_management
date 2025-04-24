@@ -2,7 +2,7 @@ import numpy as np
 import seaborn as sns
 import streamlit as st
 
-from ..AI.GPT import chatbot_GPT
+# from ..AI.GPT import chatbot_GPT
 from ..calculs import calculate_mortgage, calculate_savings
 from ..config import page_config
 from ..plots import plot_mortgage, plot_savings
@@ -175,8 +175,8 @@ class App:
             "tab2": tab2,
         }
 
-        if self.openai_api_key:
-            chatbot_GPT(self, st, **kwargs)
+        # if self.openai_api_key:
+        #     chatbot_GPT(self, st, **kwargs)
 
 
 if __name__ == "__main__":
